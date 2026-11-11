@@ -1,0 +1,349 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.produtos-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #2304ed, #05bfe4);
+  padding: 30px;
+}
+
+/* ===== HEADER ===== */
+
+.produtos-header {
+  max-width: 1200px;
+  margin: 0 auto 30px;
+
+  background: rgb(255, 255, 255);
+
+  border-radius: 12px;
+
+  padding: 25px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.produtos-header h1 {
+  color: #333;
+  font-size: 32px;
+}
+
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ===== BOTÕES TOPO ===== */
+
+.btn-cadastrar,
+.btn-carrinho,
+.btn-home {
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-cadastrar {
+  background: #28a745;
+}
+
+.btn-cadastrar:hover {
+  background: #218838;
+}
+
+.btn-carrinho {
+  background: #007bff;
+}
+
+.btn-carrinho:hover {
+  background: #0069d9;
+}
+
+.btn-home {
+  background: #6c757d;
+}
+
+.btn-home:hover {
+  background: #5a6268;
+}
+
+/* ===== CARRINHO INFO ===== */
+
+.carrinho-info {
+  max-width: 1200px;
+  margin: 0 auto 25px;
+
+  background: #fff3cd;
+  color: #856404;
+
+  border-left: 5px solid #ffc107;
+
+  padding: 15px 20px;
+
+  border-radius: 8px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  font-weight: bold;
+}
+
+/* ===== SEM PRODUTOS ===== */
+
+.sem-produtos {
+  background: white;
+  max-width: 700px;
+
+  margin: 50px auto;
+
+  padding: 40px;
+
+  text-align: center;
+
+  border-radius: 12px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.sem-produtos h2 {
+  margin-bottom: 20px;
+}
+
+.sem-produtos button {
+  background: #28a745;
+  color: white;
+
+  border: none;
+
+  padding: 12px 20px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}
+
+/* ===== GRID ===== */
+
+.produtos-grid {
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 25px;
+}
+
+/* ===== CARD ===== */
+
+.produto-card {
+  background: white;
+
+  border-radius: 12px;
+
+  padding: 20px;
+
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+  transition: 0.3s;
+}
+
+.produto-card:hover {
+  transform: translateY(-5px);
+}
+
+.produto-card h3 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.produto-card p {
+  color: #555;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* ===== IMAGEM ===== */
+
+.produto-imagem {
+  width: 100%;
+  height: 220px;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+
+  margin-bottom: 15px;
+}
+
+/* ===== PREÇO ===== */
+
+.produto-preco {
+  font-size: 24px;
+  font-weight: bold;
+
+  color: #28a745 !important;
+
+  margin-top: 15px;
+}
+
+/* ===== BOTÕES PRODUTO ===== */
+
+.produto-botoes {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.btn-comprar,
+.btn-editar,
+.btn-excluir {
+  flex: 1;
+  min-width: 120px;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.btn-comprar {
+  background: #007bff;
+  color: white;
+}
+
+.btn-comprar:hover {
+  background: #0069d9;
+}
+
+.btn-editar {
+  background: #ffc107;
+  color: black;
+}
+
+.btn-editar:hover {
+  background: #e0a800;
+}
+
+.btn-excluir {
+  background: #dc3545;
+  color: white;
+}
+
+.btn-excluir:hover {
+  background: #c82333;
+}
+
+/* ===== FORMULÁRIO DE EDIÇÃO ===== */
+
+.editar-box {
+  margin-top: 15px;
+
+  background: #f8f9fa;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  border: 1px solid #ddd;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.editar-box input,
+.editar-box textarea {
+  width: 100%;
+
+  padding: 10px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 6px;
+
+  font-size: 14px;
+}
+
+.editar-box textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+.btn-salvar {
+  background: #17a2b8;
+
+  color: white;
+
+  border: none;
+
+  padding: 12px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.btn-salvar:hover {
+  background: #138496;
+}
+
+/* ===== RESPONSIVO ===== */
+
+@media (max-width: 768px) {
+
+  .produtos-header {
+    flex-direction: column;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .header-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .carrinho-info {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .produto-botoes {
+    flex-direction: column;
+  }
+
+  .produtos-grid {
+    grid-template-columns: 1fr;
+  }
+}
