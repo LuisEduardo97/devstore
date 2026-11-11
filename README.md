@@ -2,86 +2,276 @@
 
 ## Descrição
 
-O DevStore é um projeto acadêmico de e-commerce desenvolvido para aplicação prática dos conceitos de DevOps. O projeto será evoluído ao longo das atividades da disciplina, incorporando versionamento com Git, integração contínua, testes automatizados, conteinerização, infraestrutura como código, observabilidade e segurança.
+O DevStore é um projeto acadêmico de e-commerce desenvolvido para aplicação prática dos conceitos de DevOps.
+
+O projeto será evoluído ao longo das atividades da disciplina, incorporando versionamento com Git, integração contínua, testes automatizados, conteinerização, infraestrutura como código, observabilidade, segurança e entrega contínua.
+
+A aplicação é composta por um frontend desenvolvido em React e um backend desenvolvido com Node.js e Express.
 
 ## Objetivo
 
-Desenvolver uma aplicação simples para gerenciamento de produtos de um e-commerce e utilizar o projeto como base para implementação de práticas DevOps durante a disciplina.
+Desenvolver e evoluir uma aplicação de e-commerce utilizando práticas de desenvolvimento e operações, aplicando os conceitos estudados na disciplina de DevOps.
 
-## Funcionalidades iniciais
+O projeto será utilizado como base para as práticas da disciplina.
 
-- Cadastrar produtos;
-- Listar produtos;
-- Buscar produtos;
-- Atualizar produtos;
-- Excluir produtos.
+## Funcionalidades
+
+- Cadastro de usuários;
+- Login administrativo;
+- Cadastro de produtos;
+- Listagem de produtos;
+- Edição de produtos;
+- Exclusão de produtos;
+- Carrinho de compras;
+- Validação de dados;
+- API para gerenciamento de produtos;
+- Testes automatizados;
+- Pipeline de integração contínua.
 
 ## Tecnologias
 
-- Node.js;
+### Frontend
+
+- React;
 - JavaScript;
+- HTML;
+- CSS;
+- React Router;
+- LocalStorage.
+
+### Backend
+
+- Node.js;
 - Express;
+- JavaScript;
+- API REST.
+
+### DevOps
+
 - Git;
-- GitHub.
+- GitHub;
+- Gitflow simplificado;
+- Conventional Commits.
 
 ## Estrutura do projeto
 
 ```text
 devstore/
-├── src/
-├── tests/
+├── backend/
+│   ├── src/
+│   │   ├── app.js
+│   │   └── server.js
+│   ├── package.json
+│   └── package-lock.json
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── pages/
+│   │   ├── styles/
+│   │   ├── App.js
+│   │   └── index.js
+│   ├── package.json
+│   └── package-lock.json
+│
 ├── docs/
+├── tests/
 ├── .gitignore
-├── package.json
 └── README.md
 ```
 
-## Backlog inicial
+## Backlog
 
 | Prioridade | Funcionalidade | Situação |
 |---|---|---|
-| Alta | Cadastro de produtos | A fazer |
-| Alta | Listagem de produtos | A fazer |
-| Média | Busca de produtos | A fazer |
-| Média | Atualização de produtos | A fazer |
-| Média | Exclusão de produtos | A fazer |
-| Alta | Testes automatizados | A fazer |
-| Alta | Pipeline de integração contínua | A fazer |
+| Alta | Cadastro de produtos | Concluído |
+| Alta | Listagem de produtos | Concluído |
+| Alta | Integração do frontend React | Concluído |
+| Alta | Organização do backend | Concluído |
+| Média | Busca de produtos | Em evolução |
+| Média | Atualização de produtos | Em evolução |
+| Média | Exclusão de produtos | Em evolução |
+| Alta | Testes automatizados | Próxima etapa |
+| Alta | Pipeline de integração contínua | Próxima etapa |
+| Média | Dockerização | Planejado |
+| Média | Observabilidade | Planejado |
+| Média | Segurança DevSecOps | Planejado |
 
 ## Responsabilidades
 
-Como esta atividade está sendo desenvolvida individualmente, as responsabilidades de desenvolvimento e operações são executadas pelo mesmo estudante.
+Como a atividade está sendo desenvolvida individualmente, as responsabilidades de desenvolvimento e operações são executadas pelo mesmo estudante.
 
-**Desenvolvimento:** implementação das funcionalidades, testes e correções da aplicação.
+**Desenvolvimento:** implementação das funcionalidades, testes, manutenção e correções da aplicação.
 
-**DevOps/Operações:** versionamento do código, organização das branches, configuração da pipeline, documentação e manutenção do ambiente de execução.
+**DevOps/Operações:** versionamento do código, organização das branches, Pull Requests, configuração de pipelines, documentação e manutenção do ambiente.
 
 ## Estratégia Git
 
-O projeto utilizará uma estratégia simplificada baseada em Gitflow, contendo uma branch principal para versões estáveis, uma branch de desenvolvimento e branches específicas para novas funcionalidades.
+Foi adotada uma estratégia simplificada baseada em Gitflow.
 
-Exemplos:
+### Branches principais
 
 ```text
 main
 develop
-feature/cadastro-produto
-feature/testes
-feature/pipeline
 ```
 
-Os commits seguirão o padrão Conventional Commits.
+A branch `main` representa a versão principal e estável do projeto.
 
-Exemplos:
+A branch `develop` é utilizada para integração das funcionalidades durante o desenvolvimento.
+
+### Branches de trabalho
+
+Foram utilizadas branches específicas para cada atividade:
 
 ```text
-feat(produto): adiciona cadastro de produtos
-fix(produto): corrige validação de preço
-test(produto): adiciona testes automatizados
-docs(readme): atualiza documentação
-ci(pipeline): configura integração contínua
+feature/cadastro-produto
+feature/integracao-frontend
+docs/documentacao-pratica1
 ```
 
-## Execução do projeto
+O fluxo utilizado é:
 
-As instruções para instalação das dependências e execução da aplicação serão atualizadas conforme o desenvolvimento do projeto.
+```text
+feature/*
+    ↓
+develop
+    ↓
+main
+```
+
+As alterações das branches de funcionalidades são integradas à branch `develop` por meio de Pull Requests.
+
+## Pull Requests realizados
+
+### Pull Request #1
+
+```text
+feature/cadastro-produto → develop
+```
+
+Implementação da API Node.js/Express com:
+
+- cadastro de produtos;
+- listagem de produtos;
+- validação de nome;
+- validação de preço.
+
+### Pull Request #2
+
+```text
+feature/integracao-frontend → develop
+```
+
+Integração do frontend React ao DevStore e reorganização da aplicação nas pastas:
+
+```text
+frontend/
+backend/
+```
+
+## Conventional Commits
+
+Os commits seguem o padrão Conventional Commits.
+
+Exemplos utilizados no projeto:
+
+```text
+chore(projeto): cria estrutura inicial do DevStore
+
+feat(produto): adiciona cadastro e listagem de produtos
+
+feat(projeto): integra frontend React e reorganiza backend
+```
+
+Outros tipos que poderão ser utilizados:
+
+```text
+feat: nova funcionalidade
+fix: correção
+test: testes
+docs: documentação
+ci: integração contínua
+refactor: refatoração
+chore: manutenção
+```
+
+## Execução do backend
+
+Acesse a pasta:
+
+```bash
+cd backend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute:
+
+```bash
+node src/server.js
+```
+
+O backend será iniciado em:
+
+```text
+http://localhost:3000
+```
+
+## Execução do frontend
+
+Acesse a pasta:
+
+```bash
+cd frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+No PowerShell, execute:
+
+```powershell
+$env:PORT=3001; npm start
+```
+
+O frontend será iniciado em:
+
+```text
+http://localhost:3001
+```
+
+## Evidências da Prática 1
+
+Durante a Prática 1 foram realizadas as seguintes atividades:
+
+- criação do repositório Git;
+- criação das branches `main`, `develop` e branches de trabalho;
+- utilização de Conventional Commits;
+- execução da API;
+- cadastro e listagem de produtos;
+- envio das branches para o GitHub;
+- criação de Pull Requests;
+- merge das funcionalidades na branch `develop`;
+- integração do frontend React;
+- reorganização do backend;
+- execução simultânea do frontend e backend;
+- sincronização do repositório local com o GitHub.
+
+## Próxima etapa
+
+A próxima etapa será a Prática 2, envolvendo:
+
+- testes unitários;
+- testes de integração;
+- cobertura de testes;
+- build automatizado;
+- pipeline de integração contínua;
+- geração de artefatos.
