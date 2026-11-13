@@ -114,6 +114,61 @@ Relatório de cobertura
 ↓
 Sucesso ou falha da pipeline
 
-## Próximas etapas
+## Pipeline final implementada
 
-A documentação será complementada com o build automatizado, análise estática, geração e versionamento do artefato, conforme os demais requisitos da Prática 2.
+A pipeline final da Prática 2 executa automaticamente as seguintes etapas:
+
+1. checkout do código;
+2. configuração do Node.js;
+3. instalação das dependências com `npm ci`;
+4. análise estática com ESLint;
+5. build automatizado da aplicação;
+6. execução dos testes unitários e de integração;
+7. geração do relatório de cobertura;
+8. publicação do artefato versionado.
+
+O fluxo final é:
+
+Pull Request
+↓
+Instalação das dependências
+↓
+Análise estática
+↓
+Build
+↓
+Testes e cobertura
+↓
+Artefato versionado
+↓
+Sucesso ou falha da pipeline
+
+## Build automatizado
+
+O build é executado pelo comando:
+
+`npm run build`
+
+O script gera a pasta `backend/dist`, contendo os arquivos necessários para distribuição da aplicação.
+
+Também é criado o arquivo `build-info.json`, contendo informações como nome do projeto, versão e data de geração.
+
+A versão utilizada nesta etapa é `1.0.0`.
+
+## Análise estática
+
+A análise estática é realizada com ESLint por meio do comando:
+
+`npm run lint`
+
+Foram configuradas regras para identificar problemas como variáveis não utilizadas, referências não definidas e comparações inadequadas.
+
+## Artefato
+
+Após a conclusão bem-sucedida do build e dos testes, o GitHub Actions publica automaticamente o conteúdo da pasta `backend/dist` como artefato da execução.
+
+O artefato utiliza identificação baseada na versão da aplicação e no número da execução da pipeline, permitindo rastreabilidade entre código, execução e pacote gerado.
+
+## Resultado
+
+A implementação da Prática 2 automatiza a validação do projeto DevStore e aplica os conceitos de Integração Contínua, Fail Fast, testes automatizados, análise estática, build reproduzível e geração de artefatos.

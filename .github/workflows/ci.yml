@@ -11,8 +11,8 @@ on:
       - reopened
 
 jobs:
-  testes:
-    name: Testes automatizados
+  pipeline:
+    name: Build, Testes e Artefato
     runs-on: ubuntu-latest
 
     defaults:
@@ -33,5 +33,18 @@ jobs:
       - name: Instalar dependencias
         run: npm ci
 
-      - name: Executar testes e cobertura
+      - name: Analise estatica com ESLint
+        run: npm run lint
+
+      - name: Build da aplicacao
+        run: npm run build
+
+      - name: Testes unitarios, integracao e cobertura
         run: npm run test:ci
+
+      - name: Publicar artefato versionado
+        uses: actions/upload-artifact@v7
+        with:
+          name: devstore-v1.0.0-${{ github.run_number }}
+          path: backend/dist
+          if-no-files-found: error
