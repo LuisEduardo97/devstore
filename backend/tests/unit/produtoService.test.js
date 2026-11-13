@@ -1,6 +1,5 @@
 const {
-  validarProduto,
-  criarProduto
+  validarProduto
 } = require("../../src/services/produtoService");
 
 describe("produtoService - testes unitários", () => {
