@@ -1,0 +1,50 @@
+name: CI - DevStore
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+    types:
+      - opened
+      - synchronize
+      - reopened
+
+jobs:
+  pipeline:
+    name: Build, Testes e Artefato
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: backend
+
+    steps:
+      - name: Baixar codigo
+        uses: actions/checkout@v7
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+          cache-dependency-path: backend/package-lock.json
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Analise estatica com ESLint
+        run: npm run lint
+
+      - name: Build da aplicacao
+        run: npm run build
+
+      - name: Testes unitarios, integracao e cobertura
+        run: npm run test:ci
+
+      - name: Publicar artefato versionado
+        uses: actions/upload-artifact@v7
+        with:
+          name: devstore-v1.0.0-${{ github.run_number }}
+          path: backend/dist
+          if-no-files-found: error
