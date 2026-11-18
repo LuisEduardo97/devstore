@@ -42,6 +42,14 @@ jobs:
       - name: Testes unitarios, integracao e cobertura
         run: npm run test:ci
 
+      - name: Construir imagem Docker
+        run: docker build -t devstore:${{ github.run_number }} .
+        working-directory: ${{ github.workspace }}
+
+      - name: Validar imagem Docker
+        run: docker image inspect devstore:${{ github.run_number }}
+        working-directory: ${{ github.workspace }}
+        
       - name: Publicar artefato versionado
         uses: actions/upload-artifact@v7
         with:
