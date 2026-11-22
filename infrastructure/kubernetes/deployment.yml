@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devstore-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devstore
+  template:
+    metadata:
+      labels:
+        app: devstore
+    spec:
+      containers:
+        - name: devstore
+          image: devstore:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: devstore-config
